@@ -1,5 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
-
+import datetime
 
 db = SQLAlchemy()
 
@@ -36,4 +36,24 @@ class User(db.Model):
             'd_o_b': self.d_o_b,
             'username': self.username,
             'password': self.password
+        }
+
+
+class Trip(db.Model):
+    __tablename__ = 'trips'
+
+    def __init__(self, trip_num:int, date:int):
+        self.trip_num = trip_num
+        self.date = date
+
+
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    trip_num = db.Column(db.Integer, unique=True, nullable=False)
+    date = db.Column(db.DateTime, default=datetime.datetime.utcnow, nullable=False)
+
+    def serialize(self):
+        return {
+            'id': self.id,
+            'trip_num': self.trip_num,
+            'date': self.date.isoformat()
         }
