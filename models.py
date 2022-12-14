@@ -5,10 +5,18 @@ db = SQLAlchemy()
 
 # class for users
 class User(db.Model):
-    __tablename__ = 'users'
+    __tablename__ = "users"
 
-    def __init__(self, first_name:str, last_name:str, 
-            email:str, phone_num:int, d_o_b:int, username:str, password:str):
+    def __init__(
+        self,
+        first_name: str,
+        last_name: str,
+        email: str,
+        phone_num: int,
+        d_o_b: int,
+        username: str,
+        password: str,
+    ):
         self.first_name = first_name
         self.last_name = last_name
         self.email = email
@@ -28,32 +36,27 @@ class User(db.Model):
 
     def serialize(self):
         return {
-            'id': self.id,
-            'first_name': self.first_name,
-            'last_name': self.last_name,
-            'email': self.email,
-            'phone_num': self.phone_num,
-            'd_o_b': self.d_o_b,
-            'username': self.username,
-            'password': self.password
+            "id": self.id,
+            "first_name": self.first_name,
+            "last_name": self.last_name,
+            "email": self.email,
+            "phone_num": self.phone_num,
+            "d_o_b": self.d_o_b,
+            "username": self.username,
+            "password": self.password,
         }
 
 
 class Trip(db.Model):
-    __tablename__ = 'trips'
+    __tablename__ = "trips"
 
-    def __init__(self, trip_num:int, date:int):
+    def __init__(self, trip_num: int, date: int):
         self.trip_num = trip_num
         self.date = date
-
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     trip_num = db.Column(db.Integer, unique=True, nullable=False)
     date = db.Column(db.DateTime, default=datetime.datetime.utcnow, nullable=False)
 
     def serialize(self):
-        return {
-            'id': self.id,
-            'trip_num': self.trip_num,
-            'date': self.date.isoformat()
-        }
+        return {"id": self.id, "trip_num": self.trip_num, "date": self.date.isoformat()}
