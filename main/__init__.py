@@ -29,13 +29,11 @@ def create_app(test_config=None):
         pass
 
     from models import db
-
     db.init_app(app)
     migrate = Migrate(app, db)
 
-    from api import users
-
+    from api import users, trips
     app.register_blueprint(users.bp)
-    # app.register_blueprint(tweets.bp)
+    app.register_blueprint(trips.bp)
 
     return app

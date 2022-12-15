@@ -33,6 +33,7 @@ class User(db.Model):
     d_o_b = db.Column(db.Date, nullable=False)
     username = db.Column(db.String(20), unique=True, nullable=False)
     password = db.Column(db.String(20), nullable=False)
+    trips = db.relationship('Trip', backref='user')
 
     def serialize(self):
         return {
@@ -47,6 +48,14 @@ class User(db.Model):
         }
 
 
+user_trips = db.Table(
+    "user_trips",
+    db.Column("id", db.Integer, primary_key=True, autoincrement=True),
+    db.Column("user_id", db.Integer, db.ForeignKey("users.id"), primary_key=True),
+    db.Column("trip_id", db.Integer, db.ForeignKey("trips.id"), primary_key=True),
+)
+
+
 class Trip(db.Model):
     __tablename__ = "trips"
 
@@ -56,7 +65,9 @@ class Trip(db.Model):
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     trip_num = db.Column(db.Integer, unique=True, nullable=False)
-    date = db.Column(db.DateTime, default=datetime.datetime.utcnow, nullable=False)
+    date = db.Column(db.Date, nullable=False)
+    user_trips = db.relationship('User', backref='trip')
+
 
     def serialize(self):
         return {"id": self.id, "trip_num": self.trip_num, "date": self.date.isoformat()}
