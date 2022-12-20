@@ -1,8 +1,8 @@
 """Flight table
 
-Revision ID: 5fd8b1d0137e
-Revises: 132d6608546d
-Create Date: 2022-12-18 11:23:39.189988
+Revision ID: 44732db79740
+Revises: 8db984d8a779
+Create Date: 2022-12-18 21:11:47.613995
 
 """
 from alembic import op
@@ -10,8 +10,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '5fd8b1d0137e'
-down_revision = '132d6608546d'
+revision = '44732db79740'
+down_revision = '8db984d8a779'
 branch_labels = None
 depends_on = None
 
@@ -23,8 +23,8 @@ def upgrade():
     sa.Column('flight_num', sa.Integer(), nullable=False),
     sa.Column('orgin_id', sa.Integer(), nullable=False),
     sa.Column('destination_id', sa.Integer(), nullable=False),
-    sa.Column('date', sa.Integer(), nullable=False),
-    sa.Column('airline', sa.Integer(), nullable=False),
+    sa.Column('date', sa.Date(), nullable=False),
+    sa.Column('airline_id', sa.Integer(), nullable=False),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('flight_num')
     )

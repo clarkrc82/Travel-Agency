@@ -24,7 +24,7 @@ def index():
     return jsonify(result)  # return JSON response
 
 
-# GET by user id
+# GET by trip id
 @bp.route("/<int:id>", methods=["GET"])
 def show(id: int):
     t = Trip.query.get_or_404(id)

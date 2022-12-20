@@ -32,8 +32,14 @@ def create_app(test_config=None):
     db.init_app(app)
     migrate = Migrate(app, db)
 
-    from api import users, trips
+    from api import users, trips, flights, airlines, hotels, rental_cars, cities
     app.register_blueprint(users.bp)
     app.register_blueprint(trips.bp)
+    app.register_blueprint(flights.bp)
+    app.register_blueprint(airlines.bp)
+    app.register_blueprint(hotels.bp)
+    app.register_blueprint(rental_cars.bp)
+    app.register_blueprint(cities.bp)
+   
 
     return app

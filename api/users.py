@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, abort, request
-from models import User, db
+from models import User, db, user_trips
 
 bp = Blueprint("users", __name__, url_prefix="/users")
 
@@ -32,22 +32,27 @@ def show(id: int):
 # Updates username and password of user
 @bp.route("/<int:id>", methods=["PATCH", "PUT"])
 def update(id: int):
-
     u = User.query.get_or_404(id)
-
     # Username must be included
     if "username" not in request.json and "password" not in request.json:
         return abort(400)
-
     # Username must be 5 or more characters and password must be 8 or more characters
     if len(request.json["username"]) < 5 or len(request.json["password"]) < 8:
         return abort(400)
-
     u.username = request.json["username"]
     u.password = request.json["password"]
-
     try:
         db.session.commit()
         return jsonify(u.serialize())
     except:
         return jsonify(False)
+    
+    
+# Get user by id#
+@bp.route('/<int:id>/user_trips', methods=['GET'])
+def user_trip(id: int):
+    u = User.query.get_or_404(id)
+    result = []
+    for i in u.user_trips:
+        result.append(i.serialize())
+    return jsonify(result)

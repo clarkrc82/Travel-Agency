@@ -1,14 +1,14 @@
-INSERT INTO customers(first_name,last_name,user_name,email,phone_number,dob)
-VALUES ('Elsie','Cunningham','DeckBrace','adah28@gmail.com',6066783060,'1954-10-24'), 
-('Nora','Hampton','Girlie','simone.jenkins@hotmail.com',5086847184,'1976-04-11'),
-('Joseph','Ferguson','Grimplas','ohuel@gmail.com',5306737822,'1989-06-20'), 
-('Rex','Crawford','Fourve','sandra.rosenbaum@gmail.com',3192562994,'1992-03-18'),
-('Devin', 'Estrada','Isoleph','ritchie.nina@yahoo.com',3219655347,'1992-04-08'),
-('Cory', 'Summers','Bluentand','nicolas.padberg@schowalter.com',9158994665,'1942-10-22'),
-('Dixie', 'Richardson','ThedevilShabby','jakob.lakin@schroeder.com',8634445703,'1948-08-12'),
-('Arthur', 'Wood','Phathe','cassandra.krajcik@bosco.com',7193539182,'1977-09-05'),
-('Travis', 'Mills','Beeag','nicolas11@hotmail.com',5024969275,'1991-10-21'),
-('Wilbert', 'Cross','LedgerTwo','watsica.trenton@gmail.com',5309827974,'1962-04-21');
+
+INSERT INTO users(first_name, last_name, email, phone_num, d_o_b, username, password)
+VALUES ('Elsie','Cunningham','adah28@gmail.com',6066783060,'1954-10-24','DeckBrace','password123'), 
+('Nora','Hampton','simone.jenkins@hotmail.com',5086847184,'1976-04-11', 'Girlie', '321password'),
+('Joseph','Ferguson','ohuel@gmail.com',5306737822,'1989-06-20', 'Grimplas', '123password'), 
+('Rex','Crawford','sandra.rosenbaum@gmail.com',3192562994,'1992-03-18', 'Fourve', '9876543'),
+('Devin', 'Estrada', 'ritchie.nina@yahoo.com',3219655347,'1992-04-08', 'Isoleph', 'pw999'),
+('Arthur', 'Wood','cassandra.krajcik@bosco.com',7193539182,'1977-09-05', 'Phathe','wordpass'),
+('Travis', 'Mills','nicolas11@hotmail.com',5024969275,'1991-10-21', 'Beeag','wordpass123'),
+('Wilbert', 'Cross','watsica.trenton@gmail.com',5309827974,'1962-04-21', 'LedgerTwo', 'pw98765')
+
 
 INSERT INTO hotels(name)
 VALUES ('Hilton'), ('Marriot'),('Courtyard by Marriot'), 
@@ -24,23 +24,18 @@ VALUES ('New York City', 'NY'), ('Chicago','IL'),('Houston', 'TX'),
 	('Baltimore','MD'),('Milwaukee','WI'),('Kansas City','KS'),('Maimi','FL'),('Tulsa','OK'),('Tampa','FL'),
 	('Cleveland','OH'),('Newwark','NJ'),('Richmond','VA');
 
-INSERT INTO cities(city, state)
-VALUES ('New York City', 'NY'), ('Chicago','IL'),('Houston', 'TX'), 
-	('Phoenix', 'AZ'),('San Antonio','TX'),('Dallas', 'TX'),('Austin', 'TX'),('Jacksonville','FL'),('Columbus', 'OH'),
-	('Indianapolis', 'IN'),('Charlotte','NC'),('Denver','CO'),('Boston','MA'),('Las Vegas', 'NV'),('Memphis','TN'),
-	('Baltimore','MD'),('Milwaukee','WI'),('Kansas City','KS'),('Maimi','FL'),('Tulsa','OK'),('Tampa','FL')
-	('Cleveland','OH'),('Newwark','NJ'),('Richmond','VA');
 
-INSERT INTO car_rentals(name)
+INSERT INTO rental_cars(name)
 VALUES ('Enterprise'), ('National'),('Alamo'), 
 	('Hertz'),('Avis'),('Dollar'),('Budget'),('Thrifty');
-INSERT INTO airlines(name)
-VALUES ('Horizon Air'), ('Southwest Airlines'),('British Air'), 
-	('JetBlue'),('Allegiant Air'),('American Airlines'),('Frontier Airlines'),('SkyWest Airlines');
-INSERT INTO airlines(name)
-VALUES ('Alaska Air'), ('Delta');
 
-INSERT INTO flights(flight_number,orgin_city_id, destination_city_id,date,airline_id)
+
+INSERT INTO airlines(name)
+VALUES ('Alaska Air'), ('Delta Airlines'),('Horizon Air'), ('Southwest Airlines'),('British Air'), 
+	('JetBlue'),('Allegiant Air'),('American Airlines'),('Frontier Airlines'),('SkyWest Airlines');
+
+
+INSERT INTO flights(flight_num,orgin_id, destination_id,date,airline_id)
 VALUES (302,2,24,'2022-02-08',4),
 (2123,30,3,'2022-06-02',1),
 (701,32,31,'2022-06-05',10),
@@ -49,18 +44,19 @@ VALUES (302,2,24,'2022-02-08',4),
 (1023, 23,5,'2022-02-20',2),
 (309,29,9,'2022-03-28',9)
 
-INSERT INTO customer_trips(customer_id,trip_id)
-VALUES (2,1),(10,3),(2,5),(6,5),(9,4),(7,2)
+INSERT INTO user_trips(user_id,trip_id)
+VALUES (2,6),(5,6),(2,7),(6,10),(8,8),(7,9)
 
-INSERT INTO trip_flights(flight_id,trip_id)
-VALUES (8,1),(10,3),(14,5),(11,5),(9,4),(11,2)
+INSERT INTO flight_trips(flight_id,trip_id)
+VALUES (22,6),(23,6),(24,7),(26,10),(27,8),(25,9)
 
-INSERT INTO trips(trip_number,date, car_rental_id,hotel_id)
-VALUES (10,'2022-02-20',1,NULL),
-(12,'2022-03-28',2,10),
-(14,'2022-06-06',3,2),
-(16,'2022-08-20',NULL,NULL),
-(18,'2022-09-07',NULL, 5)
+INSERT INTO trips(trip_num, date, hotel_id, rental_car_id, flight_id)
+VALUES (10,'2022-02-20',1,NULL, 41),
+(12,'2022-03-28',2,5,36),
+(14,'2022-06-06',3,2, 40),
+(16,'2022-08-20',NULL,NULL, 36),
+(18,'2022-09-07',NULL, 5,37)
+
 
 
 
