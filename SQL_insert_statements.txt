@@ -7,7 +7,7 @@ VALUES ('Elsie','Cunningham','adah28@gmail.com',6066783060,'1954-10-24','DeckBra
 ('Devin', 'Estrada', 'ritchie.nina@yahoo.com',3219655347,'1992-04-08', 'Isoleph', 'pw999'),
 ('Arthur', 'Wood','cassandra.krajcik@bosco.com',7193539182,'1977-09-05', 'Phathe','wordpass'),
 ('Travis', 'Mills','nicolas11@hotmail.com',5024969275,'1991-10-21', 'Beeag','wordpass123'),
-('Wilbert', 'Cross','watsica.trenton@gmail.com',5309827974,'1962-04-21', 'LedgerTwo', 'pw98765')
+('Wilbert', 'Cross','watsica.trenton@gmail.com',5309827974,'1962-04-21', 'LedgerTwo', 'pw98765');
 
 
 INSERT INTO hotels(name)
@@ -42,20 +42,17 @@ VALUES (302,2,24,'2022-02-08',4),
 (564,1,11,'2022-07-11',5),
 (981,22,14,'2022-09-11',7),
 (1023, 23,5,'2022-02-20',2),
-(309,29,9,'2022-03-28',9)
+(309,29,9,'2022-03-28',9);
 
 INSERT INTO user_trips(user_id,trip_id)
-VALUES (2,6),(5,6),(2,7),(6,10),(8,8),(7,9)
-
-INSERT INTO flight_trips(flight_id,trip_id)
-VALUES (22,6),(23,6),(24,7),(26,10),(27,8),(25,9)
+VALUES (2,6),(5,6),(2,7),(6,10),(8,8),(7,9);
 
 INSERT INTO trips(trip_num, date, hotel_id, rental_car_id, flight_id)
 VALUES (10,'2022-02-20',1,NULL, 41),
 (12,'2022-03-28',2,5,36),
 (14,'2022-06-06',3,2, 40),
 (16,'2022-08-20',NULL,NULL, 36),
-(18,'2022-09-07',NULL, 5,37)
+(18,'2022-09-07',NULL, 5,37);
 
 
 
