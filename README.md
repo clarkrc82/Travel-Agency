@@ -1,12 +1,13 @@
 
 # Travel Agency Database
 
-Mock Database for a madeup Travel Agency. This project is currently a work in progress. 
+Database for a madeup Travel Agency. This project is currently a work in progress. 
 So far this project consists of:
 
 * Postgress Database
 * Flask Migrations 
 * Rest API
+* Utilizes ORM 
 
 
 ## DB Schema
